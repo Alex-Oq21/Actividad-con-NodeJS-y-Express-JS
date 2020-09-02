@@ -5,6 +5,7 @@ const app = express()
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'mustache')
 app.engine('mustache', hoganMiddleware.__express)
+app.use(express.static(path.join(__dirname, 'public')))
 
 app.get('/', (req, res, next) => {
     res.send('Hola Mundo')
@@ -22,3 +23,4 @@ app.get('/home', (req, res, next) => {
 })
 
 app.listen(3000)
+console.log('El servidor esta corriendo por el puerto 3000');
